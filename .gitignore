@@ -1,2 +1,3 @@
 /Data
-/__pychache__
+**/__pycache__/
+/Models
