@@ -11,6 +11,22 @@ def saveModel(model, model_name):
     torch.save(model.state_dict(), model_path)
     
     print("Model saved successfully!")
+    
+def loadModel(checkpoint_name):
+    script_dir = os.path.dirname(__file__)
+    models_dir = os.path.join(script_dir, '..', 'Models')
+    
+    file_path = os.path.join(models_dir, f"{checkpoint_name}.pth")   
+    
+     # Check if the model file exists
+    if not os.path.exists(file_path):
+        print(f"Model file {checkpoint_name} not found.")
+        return None
+    
+    model = torch.load(file_path)
+    return model
+    
+    
 
 def logLoss(model_name, train_loss_list, val_loss_list):
     script_dir = os.path.dirname(__file__)
